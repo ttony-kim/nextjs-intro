@@ -9,21 +9,29 @@ export default function NavBar() {
     <nav>
       <Link
         href="/"
-        className={`${styles.link} ${
-          router.pathname === "/" ? styles.active : ""
-        }`}
+        legacyBehavior
+        className={router.pathname === "/" ? "active" : ""}
       >
         Home
       </Link>
-      <Link
-        href="/about"
-        className={[
-          styles.link,
-          router.pathname === "/about" ? styles.active : "",
-        ].join(" ")}
-      >
-        About
+      <Link href="/about">
+        <span className={router.pathname === "/about" ? "active" : ""}>
+          About
+        </span>
       </Link>
+      <style jsx>
+        {`
+          nav {
+            background-color: tomato;
+          }
+          span {
+            text-decoration: none;
+          }
+          .active {
+            color: yellow;
+          }
+        `}
+      </style>
     </nav>
   );
 }
