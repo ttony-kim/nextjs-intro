@@ -7,12 +7,8 @@ export default function NavBar() {
 
   return (
     <nav>
-      <Link
-        href="/"
-        legacyBehavior
-        className={router.pathname === "/" ? "active" : ""}
-      >
-        Home
+      <Link href="/" className={router.pathname === "/" ? "active" : ""}>
+        <span className={router.pathname === "/" ? "active" : ""}>Home</span>
       </Link>
       <Link href="/about">
         <span className={router.pathname === "/about" ? "active" : ""}>
@@ -24,7 +20,7 @@ export default function NavBar() {
           nav {
             background-color: tomato;
           }
-          span {
+          a {
             text-decoration: none;
           }
           .active {
